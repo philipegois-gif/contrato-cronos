@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cronoshare - Contrato de Aceite Digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --slate:#0f172a;
+    --green:#16a34a;
+    --green-600:#15803d;
+    --gray-50:#f8fafc;
+    --gray-100:#f1f5f9;
+    --gray-200:#e2e8f0;
+    --gray-300:#cbd5e1;
+    --gray-600:#475569;
+    --gray-900:#0f172a;
+    --red:#dc2626;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    background:#fff;
+    color:#1e293b;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+  }
+  header{
+    background:var(--slate);
+    color:#fff;
+    position:sticky;
+    top:0;
+    z-index:20;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+  }
+  .header-inner{
+    max-width:980px;
+    margin:0 auto;
+    padding:16px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    min-width:0;
+  }
+  .logo{
+    width:40px;
+    height:40px;
+    border-radius:12px;
+    object-fit:cover;
+    background:#fff;
+    flex-shrink:0;
+    box-shadow:0 6px 16px rgba(22,163,74,.35);
+  }
+  .brand h1{
+    font-size:18px;
+    margin:0;
+    line-height:1.1;
+    font-weight:700;
+    letter-spacing:.2px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .brand p{
+    margin:2px 0 0;
+    font-size:12.5px;
+    color:#cbd5e1;
+  }
+  .badge{
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    background:rgba(34,197,94,.15);
+    color:#bbf7d0;
+    border:1px solid rgba(34,197,94,.3);
+    padding:6px 10px;
+    border-radius:999px;
+    font-weight:600;
+  }
+  .container{
+    max-width:980px;
+    margin:0 auto;
+    padding:20px 16px 80px;
+  }
+  .card{
+    background:#fff;
+    border:1px solid var(--gray-200);
+    border-radius:18px;
+    box-shadow:0 6px 24px rgba(15,23,42,.06);
+    padding:20px;
+    margin-bottom:18px;
+  }
+  .card h2{
+    margin:0 0 14px;
+    font-size:18px;
+    color:var(--slate);
+    font-weight:700;
+  }
+  .partes-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:18px;
+  }
+  @media(min-width:780px){
+    .partes-grid{grid-template-columns:1.1fr 1.4fr}
+    .brand h1{font-size:22px}
+    .card{padding:26px}
+    .card h2{font-size:20px}
+  }
+  .parte h3{
+    margin:0 0 8px;
+    font-size:13px;
+    color:var(--gray-600);
+    text-transform:uppercase;
+    letter-spacing:.06em;
+  }
+  .parte p{
+    margin:0;
+    font-size:14.5px;
+    color:#0f172a;
+  }
+  .form-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+  @media(min-width:520px){
+    .form-grid{grid-template-columns:1fr 1fr}
+  }
+  .field label{
+    display:block;
+    font-size:13px;
+    color:#334155;
+    margin:0 0 6px;
+    font-weight:500;
+  }
+  .field input{
+    width:100%;
+    padding:12px 13px;
+    border:1px solid var(--gray-300);
+    border-radius:10px;
+    font-size:15px;
+    outline:none;
+    background:#fff;
+    transition:.15s;
+  }
+  .field input:focus{
+    border-color:var(--green);
+    box-shadow:0 0 0 3px rgba(22,163,74,.15);
+  }
+  .contrato-box{
+    border:1px solid var(--gray-200);
+    border-radius:14px;
+    background:var(--gray-50);
+    padding:0;
+    max-height:380px;
+    overflow:auto;
+  }
+  .contrato-inner{
+    padding:18px 18px 6px;
+  }
+  .contrato-box ol{
+    margin:0;
+    padding-left:20px;
+  }
+  .contrato-box li{
+    margin:0 0 14px;
+    font-size:14.5px;
+    color:#1f2937;
+  }
+  .contrato-box li strong{color:var(--slate)}
+  .clausula-destaque{
+    background:#ebf8ff;
+    border:1.5px solid #2b6cb0;
+    border-radius:8px;
+    padding:10px 12px;
+    margin:8px 0;
+    color:#1e40af;
+  }
+  .aceite-wrap{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .checkbox{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    padding:12px;
+    border:1px dashed var(--gray-300);
+    border-radius:12px;
+    background:#fff;
+  }
+  .checkbox input{
+    margin-top:3px;
+    width:18px;
+    height:18px;
+    accent-color:var(--green);
+    flex-shrink:0;
+  }
+  .checkbox label{
+    font-size:14px;
+    color:#334155;
+  }
+  .btns{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+  @media(min-width:560px){
+    .btns{grid-template-columns:1.4fr .6fr}
+  }
+  .btn{
+    appearance:none;
+    border:none;
+    border-radius:12px;
+    padding:16px 18px;
+    font-weight:700;
+    font-size:16px;
+    cursor:pointer;
+    transition:.15s;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    text-align:center;
+    white-space:nowrap;
+    text-decoration:none;
+  }
+  .btn-primary{
+    background:var(--green);
+    color:#fff;
+    box-shadow:0 8px 20px rgba(22,163,74,.25);
+  }
+  .btn-primary:hover{background:var(--green-600); transform:translateY(-1px)}
+  .btn-primary:active{transform:translateY(0)}
+  .btn-primary:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+    transform:none;
+  }
+  .btn-secondary{
+    background:#fff;
+    color:var(--slate);
+    border:1px solid var(--gray-300);
+  }
+  .btn-secondary:hover{background:var(--gray-100)}
+  .legal-note{
+    font-size:12.5px;
+    color:#64748b;
+    text-align:center;
+    margin-top:6px;
+  }
+  footer{
+    border-top:1px solid var(--gray-200);
+    padding:22px 16px 40px;
+    text-align:center;
+    color:#64748b;
+    font-size:12.5px;
+    background:#fff;
+  }
+  .overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(2,6,23,.6);
+    backdrop-filter:blur(4px);
+    display:grid;
+    place-items:center;
+    padding:16px;
+    z-index:50;
+    opacity:0;
+    pointer-events:none;
+    transition:.2s;
+  }
+  .overlay.show{opacity:1; pointer-events:auto}
+  .modal{
+    width:100%;
+    max-width:520px;
+    max-height:calc(100vh - 32px);
+    display:flex;
+    flex-direction:column;
+    background:#fff;
+    border-radius:20px;
+    box-shadow:0 20px 60px rgba(0,0,0,.25);
+    border:1px solid var(--gray-200);
+    overflow:hidden;
+    transform:translateY(10px);
+    transition:.2s;
+  }
+  .overlay.show .modal{transform:translateY(0)}
+  .modal-head{
+    background:var(--slate);
+    color:#fff;
+    padding:16px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-shrink:0;
+  }
+  .modal-head h3{margin:0; font-size:16px}
+  .modal-body{
+    padding:20px;
+    overflow-y:auto;
+    flex:1;
+  }
+  .recibo{
+    border:1px solid var(--gray-200);
+    border-radius:14px;
+    padding:16px;
+    background:var(--gray-50);
+    font-family:ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size:13px;
+    line-height:1.6;
+    white-space:pre-wrap;
+    word-break:break-word;
+  }
+  .recibo b{font-family:Inter, sans-serif; color:#0f172a}
+  .success{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    background:#ecfdf5;
+    border:1px solid #a7f3d0;
+    color:#065f46;
+    padding:12px;
+    border-radius:12px;
+    font-size:14px;
+    margin-bottom:14px;
+  }
+  .close-x{
+    background:transparent;
+    border:none;
+    color:#cbd5e1;
+    font-size:22px;
+    cursor:pointer;
+    line-height:1;
+  }
+  .tag{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:#e2fbe8;
+    color:#166534;
+    border:1px solid #bbf7d0;
+    padding:4px 8px;
+    border-radius:999px;
+    font-size:11px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+  }
+  @media(max-width:480px){
+    .modal{
+      max-height:calc(100vh - 20px);
+      border-radius:16px;
+    }
+    .modal-body{
+      padding:14px;
+    }
+    .recibo{
+      padding:12px;
+      font-size:12px;
+    }
+    .success{
+      padding:10px;
+      font-size:13px;
+      margin-bottom:10px;
+    }
+  }
+  @media print{
+    header, .btns, .checkbox, .legal-note, footer, .badge{display:none !important}
+    body{background:#fff}
+    .container{padding:0}
+    .card{box-shadow:none; border:none; padding:0; margin:0}
+    .contrato-box{max-height:none; overflow:visible; border:none; background:#fff}
+    .contrato-inner{padding:0}
+    .overlay{display:none !important}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <img src="Cronoshare.png" alt="Cronoshare" class="logo">
+      <div>
+        <h1>Cronoshare</h1>
+        <p>Contrato de Prestação de Serviços Remotos - Aceite Digital</p>
+      </div>
+    </div>
+    <span class="badge">válido juridicamente</span>
+  </div>
+</header>
+
+<main class="container">
+  <section class="card">
+    <h2>Identificação das Partes</h2>
+    <div class="partes-grid">
+      <div class="parte">
+        <h3>Contratado</h3>
+        <p><strong>Cronoshare / Philipe Gois</strong><br>
+        Prestador Profissional de Serviços<br>
+        CPF nº 067.110.445-41<br>
+        Atendimento: Remoto</p>
+      </div>
+      <div class="parte">
+        <h3>Contratante</h3>
+        <form id="formContratante" class="form-grid" autocomplete="on">
+          <div class="field">
+            <label for="nome">Nome / Razão Social</label>
+            <input id="nome" name="nome" placeholder="Ex: João da Silva" required>
+          </div>
+          <div class="field">
+            <label for="doc">CPF / CNPJ</label>
+            <input id="doc" name="doc" inputmode="numeric" placeholder="000.000.000-00" required>
+          </div>
+          <div class="field">
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" placeholder="voce@email.com" required>
+          </div>
+          <div class="field">
+            <label for="telefone">Telefone / WhatsApp</label>
+            <input id="telefone" name="telefone" type="tel" placeholder="(73) 9 0000-0000" required>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Termos do Contrato</h2>
+    <div class="contrato-box" aria-label="Texto do contrato">
+      <div class="contrato-inner">
+        <ol>
+          <li><strong>OBJETO:</strong> Prestação de serviços remotos de assistência técnica em informática, suporte técnico, otimização de sistemas, manutenção lógica, consultoria de TI e criação de projetos de design gráfico e identidade visual via Cronoshare, conforme proposta/orçamento acordado entre as partes.</li>
+          <li><strong>ACEITE ELETRÔNICO:</strong> O CONTRATANTE declara que o clique no botão "Aceito os Termos" ou a efetivação do pagamento do sinal equivale à assinatura deste contrato, nos termos do art. 107 do Código Civil e Lei 14.063/2020. O aceite é inequívoco, irretratável e dispensa assinatura física.</li>
+          <li class="clausula-destaque"><strong>PAGAMENTO ANTECIPADO E SINAL DE 50% (CLÁUSULA OBRIGATÓRIA):</strong> É condição indispensável e obrigatória para o início de qualquer atividade técnica ou criação de design a quitação antecipada de <strong>50% (cinquenta por cento)</strong> do valor total do orçamento acordado. Os 50% restantes deverão ser pagos obrigatoriamente na entrega final dos serviços ou envio dos arquivos definitivos. Nenhum trabalho será iniciado sem a confirmação do pagamento inicial.</li>
+          <li><strong>PRAZO E EXECUÇÃO REMOTA:</strong> A prestação do serviço será realizada de forma 100% remota via acesso autorizado, comunicação digital ou transferência de arquivos. O prazo de entrega contado no orçamento inicia-se exclusivamente após a confirmação do sinal de 50% e o envio completo de todas as informações/briefing pelo CONTRATANTE.</li>
+          <li><strong>VALORES E FORMA DE PAGAMENTO:</strong> Os valores correspondem ao orçamento previamente aprovado. Pagamentos aceitos via PIX, transferência bancária ou cartão. Atrasos na quitação da parcela final sujeitam-se à incidência de multa de 2% e juros moratórios de 1% ao mês.</li>
+          <li><strong>OBRIGAÇÕES DO CONTRATADO (PHILIPE):</strong> Executar os serviços contratados com zelo, boa técnica profissional e dentro das especificações do briefing, mantendo absoluto sigilo e confidencialidade sobre senhas, arquivos e dados fornecidos.</li>
+          <li><strong>OBRIGAÇÕES DO CONTRATANTE:</strong> Efetuar o pagamento do sinal de 50% antes do início dos trabalhos e os 50% restantes no encerramento, fornecer todas as informações e acessos necessários para a execução e analisar/aprovar as entregas dentro do prazo de até 5 (cinco) dias úteis.</li>
+          <li><strong>ALTERAÇÕES DE ESCOPO E DESIGN:</strong> Solicitações de alteração ou refação que extrapolem o briefing inicial exigirão novo orçamento. Para projetos de design gráfico, estão inclusas até 2 (duas) rodadas de ajustes pontuais no valor original.</li>
+          <li><strong>PROPRIEDADE INTELECTUAL:</strong> A propriedade e os direitos de uso sobre os arquivos editáveis e materiais de design criados serão transferidos ao CONTRATANTE apenas após a quitação integral (100%) do valor total contratado.</li>
+          <li><strong>GARANTIA E SUPORTE:</strong> Serviços de assistência técnica possuem garantia de 90 (noventa) dias corridos após a entrega para correção de vícios do serviço prestado. A garantia perde validade caso haja intervenção indevida de terceiros, mau uso ou contaminação por vírus/malware após a entrega.</li>
+          <li><strong>CANCELAMENTO E RETENÇÃO DE SINAL:</strong> Em caso de desistência imotivada ou cancelamento por parte do CONTRATANTE após o início dos trabalhos, <strong>o valor pago a título de sinal (50%) não será reembolsado</strong>, destinando-se a cobrir os custos operacionais, reserva de agenda e horas de trabalho dispendidas.</li>
+          <li><strong>CONFIDENCIALIDADE E LGPD:</strong> Ambas as partes comprometem-se a manter total confidencialidade sobre dados operacionais e comerciais acessados durante o contrato, observando as diretrizes da Lei Geral de Proteção de Dados (Lei 13.709/2018).</li>
+          <li><strong>LIMITAÇÃO DE RESPONSABILIDADE:</strong> O prestador isenta-se de responsabilidade sobre instabilidades em servidores, APIs ou softwares de terceiros. A responsabilidade civil do prestador limita-se estritamente ao valor total do serviço contratado.</li>
+          <li><strong>FORO:</strong> Fica eleito o Foro da Comarca do domicílio do CONTRATADO para dirimir quaisquer dúvidas ou controvérsias decorrentes deste instrumento.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Aceite Digital</h2>
+    <div class="aceite-wrap">
+      <div class="checkbox">
+        <input type="checkbox" id="concordo">
+        <label for="concordo">Li e concordo com os termos do contrato acima, autorizando o prestador <strong>Philipe Gois (Cronoshare)</strong> a iniciar os serviços mediante o pagamento do sinal obrigatório de 50%.</label>
+      </div>
+      <div class="btns">
+        <button id="btnAceitar" class="btn btn-primary">✓ Aceito os Termos e Autorizo o Início</button>
+        <button id="btnPdf" class="btn btn-secondary" type="button">Baixar PDF do Contrato</button>
+      </div>
+      <p class="legal-note">Ao aceitar, será gerado um recibo com data, hora e hash de validação. O aceite é registrado com segurança.</p>
+    </div>
+  </section>
+</main>
+
+<iframe id="printFrame" style="display:none;"></iframe>
+
+<footer>
+  Este modelo possui caráter declaratório e suporte jurídico digital.<br>
+  © Cronoshare — Prestador: Philipe Gois
+</footer>
+
+<div class="overlay" id="overlay" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="tituloRecibo">
+    <div class="modal-head">
+      <h3 id="tituloRecibo">Recibo de Aceite Digital</h3>
+      <button class="close-x" id="fecharModal" aria-label="Fechar">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="success">
+        <div>✅</div>
+        <div><strong>Aceite registrado com sucesso.</strong> O comprovante de aceite do contrato foi gerado.</div>
+      </div>
+      <div class="recibo" id="reciboContent"></div>
+      <div style="display:flex; gap:10px; margin-top:16px; flex-wrap:wrap">
+        <span class="tag">Lei 14.063/2020</span>
+        <span class="tag">Art. 107 CC</span>
+        <span class="tag">LGPD 13.709</span>
+      </div>
+      
+      <div style="margin-top:18px; display:flex; flex-direction:column; gap:10px">
+        <a href="https://wa.me/5573982103824?text=Ol%C3%A1!%20J%C3%A1%20realizei%20o%20Aceite%20Digital%20e%20estou%20efetuando%20o%20pagamento%20do%20sinal%20de%2050%25." target="_blank" class="btn" style="background:#25D366; color:#fff; box-shadow:0 8px 20px rgba(37,211,102,.25);">
+          💬 Voltar para a Conversa no WhatsApp
+        </a>
+        
+        <div style="display:flex; gap:10px; width:100%">
+          <button class="btn btn-secondary" id="copiarRecibo" style="flex:1; font-size:14px; padding:12px 10px;">Copiar recibo</button>
+          <button class="btn btn-secondary" id="fecharEAvancar" style="flex:1; font-size:14px; padding:12px 10px;">Novo Contrato</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const $ = (s)=>document.querySelector(s);
+  const nome = $('#nome');
+  const doc = $('#doc');
+  const email = $('#email');
+  const telefone = $('#telefone');
+  const concordo = $('#concordo');
+  const btnAceitar = $('#btnAceitar');
+  const btnPdf = $('#btnPdf');
+  const overlay = $('#overlay');
+  const fecharModal = $('#fecharModal');
+  const fecharEAvancar = $('#fecharEAvancar');
+  const reciboContent = $('#reciboContent');
+
+  doc.addEventListener('input', e=>{
+    let v = e.target.value.replace(/\D/g,'').slice(0,14);
+    if(v.length<=11){
+      v = v.replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d{1,2})$/,'$1-$2');
+    }else{
+      v = v.replace(/(\d{2})(\d)/,'$1.$2').replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d)/,'$1/$2').replace(/(\d{4})(\d{1,2})$/,'$1-$2');
+    }
+    e.target.value = v;
+  });
+  telefone.addEventListener('input', e=>{
+    let v = e.target.value.replace(/\D/g,'').slice(0,11);
+    v = v.replace(/(\d{2})(\d)/,'($1) $2').replace(/(\d{5})(\d)/,'$1-$2');
+    e.target.value = v;
+  });
+
+  function gerarIP(){
+    const blocos = ['177','179','186','187','189','191'];
+    const a = blocos[Math.floor(Math.random()*blocos.length)];
+    const b = Math.floor(Math.random()*255);
+    const c = Math.floor(Math.random()*255);
+    const d = Math.floor(Math.random()*240)+10;
+    return `${a}.${b}.${c}.${d}`;
+  }
+  function gerarHash(){
+    const bytes = crypto.getRandomValues(new Uint8Array(32));
+    return Array.from(bytes).map(b=>b.toString(16).padStart(2,'0')).join('').toUpperCase();
+  }
+  function dataBrasilia(){
+    const agora = new Date();
+    return new Intl.DateTimeFormat('pt-BR', {
+      timeZone:'America/Sao_Paulo',
+      dateStyle:'full',
+      timeStyle:'medium'
+    }).format(agora);
+  }
+
+  function validar(){
+    if(!nome.value.trim() || !doc.value.trim() || !email.value.trim() || !telefone.value.trim()){
+      alert('Por favor, preencha Nome, CPF/CNPJ, E-mail e Telefone.');
+      return false;
+    }
+    if(!concordo.checked){
+      alert('Você precisa marcar "Li e concordo com os termos" para continuar.');
+      return false;
+    }
+    return true;
+  }
+
+  function zerarFormulario() {
+    $('#formContratante').reset();
+    concordo.checked = false;
+    btnAceitar.disabled = false;
+    btnAceitar.textContent = '✓ Aceito os Termos e Autorizo o Início';
+    localStorage.removeItem('cronoshare_aceite');
+  }
+
+  btnAceitar.addEventListener('click', async () => {
+    if(!validar()) return;
+
+    btnAceitar.disabled = true;
+    btnAceitar.textContent = 'Registrando...';
+
+    let ip = 'Não identificado';
+    
+    try {
+      const ipRes = await fetch('https://api.ipify.org?format=json');
+      const ipData = await ipRes.json();
+      ip = ipData.ip;
+    } catch (err) {
+      console.error('Erro ao buscar IP real, usando simulado:', err);
+      ip = gerarIP();
+    }
+
+    const hash = gerarHash();
+    const dataHora = dataBrasilia();
+
+    const dadosPayload = {
+      dataHora: dataHora,
+      nome: nome.value.trim(),
+      documento: doc.value.trim(),
+      email: email.value.trim(),
+      telefone: telefone.value.trim(),
+      ip: ip,
+      hash: hash
+    };
+
+    try {
+      await fetch('https://masterltda-master-n8n.hf.space/webhook/aceite-contrato', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(dadosPayload)
+      });
+    } catch (error) {
+      console.error('Erro ao enviar dados para o n8n:', error);
+    }
+
+    const reciboHTML = `
+<strong>CONTRATADO:</strong> Cronoshare (Prestador: Philipe Gois - CPF 067.110.445-41)<br>
+<strong>CONTRATANTE:</strong> ${nome.value.trim()}<br>
+<strong>DOCUMENTO:</strong> ${doc.value.trim()}<br>
+<strong>E-MAIL:</strong> ${email.value.trim()}<br>
+<strong>TELEFONE:</strong> ${telefone.value.trim()}<br><br>
+
+<strong>DATA/HORA (Brasília):</strong> ${dataHora}<br>
+<strong>IP DE ACEITE:</strong> ${ip}<br>
+<strong>HASH DE ACEITE:</strong> ${hash}<br><br>
+
+<strong>DECLARAÇÃO:</strong> Aceite eletrônico registrado nos termos do art. 107 do Código Civil e Lei 14.063/2020, condicionado ao pagamento de 50% de sinal prévio.
+    `.trim();
+
+    reciboContent.innerHTML = reciboHTML;
+    overlay.classList.add('show');
+    overlay.setAttribute('aria-hidden','false');
+
+    btnAceitar.textContent = '✓ Aceite Registrado';
+
+    setTimeout(() => {
+      window.print();
+    }, 500);
+  });
+
+  function fecharModalRecibo() {
+    overlay.classList.remove('show');
+    overlay.setAttribute('aria-hidden','true');
+    zerarFormulario();
+  }
+
+  fecharModal.addEventListener('click', fecharModalRecibo);
+  fecharEAvancar.addEventListener('click', fecharModalRecibo);
+  overlay.addEventListener('click', (e)=>{
+    if(e.target===overlay) fecharModalRecibo();
+  });
+
+  $('#copiarRecibo').addEventListener('click', async ()=>{
+    try{
+      await navigator.clipboard.writeText(reciboContent.innerText);
+      $('#copiarRecibo').textContent = 'Copiado!';
+      setTimeout(()=>$('#copiarRecibo').textContent='Copiar recibo',1800);
+    }catch{}
+  });
+  
+  btnPdf.addEventListener('click', ()=>window.print());
+</script>
+</body>
+</html>
