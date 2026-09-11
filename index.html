@@ -505,7 +505,8 @@
       </div>
       
       <div style="margin-top:18px; display:flex; flex-direction:column; gap:10px">
-        <a href="https://wa.me/5573982103824?text=Ol%C3%A1!%20J%C3%A1%20realizei%20o%20Aceite%20Digital%20e%20estou%20efetuando%20o%20pagamento%20do%20sinal%20de%2050%25." target="_blank" class="btn" style="background:#25D366; color:#fff; box-shadow:0 8px 20px rgba(37,211,102,.25);">
+        <!-- Número atualizado para 5573981820832 -->
+        <a href="https://wa.me/5573981820832?text=Ol%C3%A1!%20J%C3%A1%20realizei%20o%20Aceite%20Digital%20e%20estou%20efetuando%20o%20pagamento%20do%20sinal%20de%2050%25." target="_blank" class="btn" style="background:#25D366; color:#fff; box-shadow:0 8px 20px rgba(37,211,102,.25);">
           💬 Voltar para a Conversa no WhatsApp
         </a>
         
@@ -619,7 +620,9 @@
     };
 
     try {
-      await fetch('https://masterltda-master-n8n.hf.space/webhook/aceite-contrato', {
+      // URL ajustada para webhook-test enquanto estiver em testes no n8n.
+      // Quando publicar o fluxo definitivamente no n8n, troque para /webhook/
+      await fetch('https://masterltda-master-n8n.hf.space/webhook-test/aceite-contrato', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(dadosPayload)
